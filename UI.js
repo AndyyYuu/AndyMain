@@ -24,20 +24,28 @@ function rain(){
 setInterval(rain,20);
 
 // 获取按钮、视频弹出框和遮罩
-const showVideoBtn = document.getElementById('show-video-btn');
+const logos = document.querySelectorAll('.logo');
 const videoPopup = document.getElementById('video-popup');
 const overlay = document.getElementById('overlay');
+const videoElement = document.getElementById('popup-video');
+const videoSource = document.getElementById('video-source');
 
-// 点击按钮显示视频
-showVideoBtn.addEventListener('click', function() {
-  videoPopup.style.display = 'block'; // 显示视频弹出框
-  overlay.style.display = 'block'; // 显示背景遮罩
+logos.forEach(logo => {
+  logo.addEventListener('click', function () {
+    const videoPath = this.getAttribute('data-video');
+    if (videoPath) {
+      videoSource.src = videoPath;
+      videoElement.load();
+      videoPopup.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+  });
 });
 
-// 点击遮罩关闭视频
-overlay.addEventListener('click', function() {
-  videoPopup.style.display = 'none'; // 隐藏视频弹出框
-  overlay.style.display = 'none'; // 隐藏背景遮罩
+overlay.addEventListener('click', function () {
+  videoPopup.style.display = 'none';
+  overlay.style.display = 'none';
+  videoElement.pause();
 });
 
 document.addEventListener("scroll", function () {
