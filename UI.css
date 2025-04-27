@@ -15,7 +15,65 @@
 body{
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    padding: 0;
 }
+@media (max-width: 768px) {
+    body {
+      font-size: 16px; /* 增加字体大小，便于阅读 */
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  
+    .header {
+      text-align: center;
+      padding: 20px 0;
+    }
+  
+    .header h1 {
+      font-size: 24px;
+    }
+  
+    .content {
+      display: block;
+      padding: 10px;
+    }
+  
+    .footer {
+      text-align: center;
+      padding: 20px 0;
+    }
+  
+    .navigation {
+      
+      display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+    }
+  
+    .navigation a {
+      display: inline-block;
+      padding: 10px;
+      font-size: 18px;
+    }
+  }
+  
+  /* 更小的设备（如手机） */
+  @media (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .header h1 {
+      font-size: 20px;
+    }
+  
+    .navigation a {
+      padding: 8px;
+      font-size: 16px;
+    }
+  }
 
 .btn{
     padding: 8px 16px;
@@ -337,6 +395,8 @@ nav ul li a{
     width: 1000px;;
     overflow:hidden;
     -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+    max-width: 1200px; /* 设置最大宽度，防止在大屏幕上超宽 */
+  margin: 0 auto;
     
    }
 
@@ -556,6 +616,10 @@ nav ul li a{
     width: 80%;
     transform: translateY(80px);
     transition: transform .3s;
+    
+        max-width: 100%;
+        height: auto;
+    
 }
 
 .box2:hover .img {
