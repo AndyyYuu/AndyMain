@@ -438,6 +438,18 @@ header {
     padding: 5px 10px;
     border-radius: 5px;
    }
+   @media (max-width: 768px) {
+    .container {
+      width: 100%;                    /* 宽度改成100%，手机屏幕自适应 */
+      max-width: 100%;                /* 绝不超出屏幕 */
+      padding: 0 10px;                /* 左右留一点内边距 */
+    }
+    .container div span {
+      font-size: 0.8em;               /* 字体缩小 */
+      margin: 5px;                    /* 间距缩小 */
+      padding: 3px 6px;               /* 内边距缩小 */
+    }
+  }
 
    @keyframes animate{
     from{
