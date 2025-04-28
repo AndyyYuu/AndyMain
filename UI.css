@@ -159,42 +159,61 @@ header {
     transform: translateY(0); /* 恢复到原位 */
     opacity: 1; /* 使文字完全可见 */
   }
-nav{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    position:fixed;
-    width:1134px;
-    top:36px;
+  nav {
+    position: fixed;
+    top: 36px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between; /* 左右两端对齐 */
+    align-items: center;            /* 垂直居中 */
+    padding: 0 200px;                /* 两侧留点内边距 */
     z-index: 100;
-}
-nav .logo1{
-    
+    background: transparent;        /* 或者你的渐变背景 */
+  }
+  
+  /* Logo 放左侧，不要位移 */
+  nav .logo1 {
     font-weight: 900;
     font-size: 40px;
-    color:white;
+    color: white;
     font-family: "Raleway";
-    transform: translateX(-250px);
-
-}
-
-nav ul{
-    display:flex;
-    align-items: center;
-    gap:60px;
+    transform: none;      /* 去掉之前的 translateX */
+    margin: 0;            /* 清除可能的外边距 */
+  }
+  
+  /* 菜单项水平排列 */
+  nav ul {
+    display: flex;
+    gap: 40px;            /* 菜单项之间的间距 */
     list-style: none;
-    margin: 0
-}
-
-nav ul li a{
-    font-family:Poppins;
-    font-weight:bold;
-    font-size:16px;
-    color:white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 菜单文字样式 */
+  nav ul li a {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
     text-decoration: none;
+  }
+  
+  /* --------- 移动端响应式 --------- */
+  @media (max-width: 768px) {
+    nav {
+      padding: 0 15px;
+    }
+    nav .logo1 {
+      font-size: 30px;
+    }
+    /* 这里可以直接隐藏菜单，改用汉堡按钮弹出 */
+    nav ul { flex-wrap: wrap; gap: 20px; } 
+    
+  }
 
-}
-
+   
 .hero{
     display:flex;
     height:100vh;
@@ -895,3 +914,10 @@ nav ul li a{
     gap: 30px;
 
   }
+  @media (max-width: 768px) {
+    .container3d {
+      flex-direction: column; /* 在手机上竖着排列 */
+      gap: 20px; /* 可以适当调整间距 */
+    }
+  }
+ 
